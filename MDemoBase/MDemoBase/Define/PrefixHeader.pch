@@ -1,0 +1,32 @@
+//
+//  PrefixHeader.pch
+//  MDemoBase
+//
+//  Created by yizhilu on 2017/9/9.
+//  Copyright © 2017年 Magic. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "UIView+MAdd.h"
+#import <IQKeyboardManager.h>
+#import "MNetRequestHeader.h"
+
+#define navColor [UIColor colorWithRed:62/255.0 green:131/255.0 blue:229/255.0 alpha:1]
+#define White [UIColor whiteColor]
+
+#define lineColor [UIColor colorWithRed:249/255.0 green:249/255.0 blue:249/255.0 alpha:1]
+/** *16进制颜色*/
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+/** *三原色颜色*/
+#define ColorForRGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+#define MFONT(f) [UIFont systemFontOfSize:f]
+
+#define Screen_height [[UIScreen mainScreen] bounds].size.height
+#define Screen_width [[UIScreen mainScreen] bounds].size.width
+
+#define tableHeight (Screen_height - 64)
+
+#endif /* PrefixHeader_pch */

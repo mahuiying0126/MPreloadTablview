@@ -1,0 +1,9 @@
+platform :ios, '8.0'
+target 'MDemoBase' do
+pod 'IQKeyboardManager'
+pod 'AFNetworking'
+pod 'ReactiveObjC'
+pod 'MJRefresh'
+pod 'YYKit'
+pod 'MBProgressHUD'
+end
