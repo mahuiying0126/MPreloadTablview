@@ -81,11 +81,13 @@ static char const *key_orginResponseObject = "key_orginResponseObject";
 
         if (dataArray.count == 0) {
             self.isNoMoreData = YES;
+            [subject sendError:nil];
         } else {
             self.isNoMoreData = NO;
             [self.dataArray addObjectsFromArray:dataArray];
+            [subject sendNext:self.dataArray];
         }
-        [subject sendNext:self.dataArray];
+        
     } error:^(NSError * _Nullable error) {
         [subject sendError:error];
     }completed:^{
@@ -107,8 +109,8 @@ static char const *key_orginResponseObject = "key_orginResponseObject";
     if (setting.isRefresh) {
         self.currentPage = 0;
     }
-//    self.currentPage ++;
-    self.currentPage = 1;
+    self.currentPage ++;
+//    self.currentPage = 1;
     if (setting.keyOfPage) {
       [setting.paramet setValue:@(self.currentPage) forKey:setting.keyOfPage];
     }

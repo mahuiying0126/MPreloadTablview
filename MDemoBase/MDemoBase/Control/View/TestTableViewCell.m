@@ -18,7 +18,7 @@
         self.textLB.left = 10;
         self.textLB.top = 10;
         self.textLB.width = [UIScreen mainScreen].bounds.size.width-20;
-        self.textLB.height = self.contentView.height;
+        self.textLB.height = 80;
         self.textLB.numberOfLines = 0;
         
         [self.contentView addSubview:self.textLB];

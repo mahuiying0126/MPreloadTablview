@@ -49,6 +49,7 @@ static const char * key_m_preloadBlock = "key_m_preloadBlock";
     [self.mj_footer endRefreshing];
 }
 -(void)noMoreData{
+    [self.mj_header endRefreshing];
     [self.mj_footer endRefreshingWithNoMoreData];
 }
 

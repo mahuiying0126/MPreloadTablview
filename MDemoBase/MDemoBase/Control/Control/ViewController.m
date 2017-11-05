@@ -49,7 +49,7 @@
 -(TestTableView *)testTableView{
     
     if (!_testTableView) {
-        _testTableView = [[TestTableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        _testTableView = [[TestTableView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 64) style:UITableViewStylePlain];
         [self.view addSubview:_testTableView];
     }
     return _testTableView;

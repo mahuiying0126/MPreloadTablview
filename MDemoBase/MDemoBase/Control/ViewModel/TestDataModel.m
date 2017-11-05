@@ -7,12 +7,14 @@
 //
 
 #import "TestDataModel.h"
+#import "MHYTestModel.h"
+#import "HttpRequestModel.h"
 @interface TestDataModel ()
 
 @end
 static NSString *const Test_Page_URL = @"http://sns.268xue.com/app/topic/getHotTopic";
 @implementation TestDataModel
-- (RACSignal *)siganlForJokeDataIsReload:(BOOL)isReload{
+- (RACSignal *)siganlForTopicDataIsReload:(BOOL)isReload{
     
     RACReplaySubject *subject = [RACReplaySubject subject];
     MNetConfig *seting = [MNetConfig new];
@@ -40,6 +42,52 @@ static NSString *const Test_Page_URL = @"http://sns.268xue.com/app/topic/getHotT
     return subject;
 }
 
+-(RACSignal *)siganlForTopicsDataIsReload:(BOOL)isReload{
+    RACReplaySubject *subject = [RACReplaySubject subject];
+    MNetConfig *seting = [MNetConfig new];
+    seting.hostUrl = Test_Page_URL;
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
+    [parameter setValue:@"1" forKey:@"page.currentPage"];
+    seting.paramet = parameter;
+    seting.isRefresh = isReload;
+    seting.isHidenHUD = !isReload;
+    [[MNetRequestModel netRequestSeting:seting] subscribeNext:^(id  _Nullable x) {
+        NSDictionary *request = x;
+        if ([request[@"success"] boolValue]) {
+            NSDictionary *entity = request[@"entity"];
+            NSArray *array = entity[@"topics"];
+            NSArray *arrayModel = [NSArray modelArrayWithClass:[MHYTestModel class] json:array];
+            [subject sendNext:arrayModel];
+        }
+    } error:^(NSError * _Nullable error) {
+        [subject sendError:error];
+    } completed:^{
+        [subject sendCompleted];
+    }];
+    
+    return subject;
+}
 
+- (void)requestSuccess:(void (^)(id responseData))success failure:(void (^)(NSError *error))failure {
+    NSMutableDictionary *parameter = [NSMutableDictionary dictionary];
+    [parameter setValue:@"1" forKey:@"page.currentPage"];
+    
+    [HttpRequestModel request:Test_Page_URL withParamters:parameter success:^(id responseData) {
+        NSDictionary *request = responseData;
+        if ([request[@"success"] boolValue]) {
+            NSDictionary *entity = request[@"entity"];
+            NSArray *array = entity[@"topics"];
+            NSArray *arrayModel = [NSArray modelArrayWithClass:[MHYTestModel class] json:array];
+            if (success) {
+                success(arrayModel);
+            }
+        }
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+    
+}
 
 @end

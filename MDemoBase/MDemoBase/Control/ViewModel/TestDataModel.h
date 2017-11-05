@@ -11,7 +11,8 @@
 @interface TestDataModel : NSObject
 
 
-- (RACSignal *)siganlForJokeDataIsReload:(BOOL)isReload;
+- (RACSignal *)siganlForTopicDataIsReload:(BOOL)isReload;
 
+- (void)requestSuccess:(void (^)(id responseData))success failure:(void (^)(NSError *error))failure ;
 
 @end

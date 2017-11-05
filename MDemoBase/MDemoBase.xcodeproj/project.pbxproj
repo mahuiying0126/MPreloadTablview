@@ -27,6 +27,7 @@
 		6DE38F3B1F6397B600B47014 /* MNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE38F3A1F6397B600B47014 /* MNavigationViewController.m */; };
 		6DE38F411F6399EB00B47014 /* UIWindow+MAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE38F401F6399EB00B47014 /* UIWindow+MAdd.m */; };
 		6DE38F441F639DA000B47014 /* UIView+MAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DE38F431F639DA000B47014 /* UIView+MAdd.m */; };
+		6DFDC2EC1FAEF6D200273FA5 /* HttpRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DFDC2EB1FAEF6CC00273FA5 /* HttpRequestModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,8 @@
 		6DE38F401F6399EB00B47014 /* UIWindow+MAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+MAdd.m"; sourceTree = "<group>"; };
 		6DE38F421F639DA000B47014 /* UIView+MAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MAdd.h"; sourceTree = "<group>"; };
 		6DE38F431F639DA000B47014 /* UIView+MAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MAdd.m"; sourceTree = "<group>"; };
+		6DFDC2EA1FAEF6CC00273FA5 /* HttpRequestModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpRequestModel.h; sourceTree = "<group>"; };
+		6DFDC2EB1FAEF6CC00273FA5 /* HttpRequestModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpRequestModel.m; sourceTree = "<group>"; };
 		94FD7A8D8D90008C3A26EE56 /* libPods-MDemoBase.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MDemoBase.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F825F00835B8B8CA678F46CD /* Pods-MDemoBase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDemoBase.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MDemoBase/Pods-MDemoBase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +107,7 @@
 		6D24B4E51FAAA9FA00D691A6 /* Control */ = {
 			isa = PBXGroup;
 			children = (
+				6DFDC2E91FAEF6C400273FA5 /* NetWork */,
 				6D24B4E91FAAAA4200D691A6 /* Model */,
 				6D24B4E81FAAAA3700D691A6 /* ViewModel */,
 				6D24B4E71FAAAA2A00D691A6 /* View */,
@@ -225,6 +229,15 @@
 				6D24B4F71FAAAE3700D691A6 /* NSString+MAdd.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		6DFDC2E91FAEF6C400273FA5 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				6DFDC2EA1FAEF6CC00273FA5 /* HttpRequestModel.h */,
+				6DFDC2EB1FAEF6CC00273FA5 /* HttpRequestModel.m */,
+			);
+			path = NetWork;
 			sourceTree = "<group>";
 		};
 		83E6EB1BF7E6DE8BE57EA532 /* Pods */ = {
@@ -376,6 +389,7 @@
 				6DE38F411F6399EB00B47014 /* UIWindow+MAdd.m in Sources */,
 				6D24B4F21FAAAA9F00D691A6 /* TestTableViewCell.m in Sources */,
 				6D24B4E21FAAA89500D691A6 /* MNetworkUtils.m in Sources */,
+				6DFDC2EC1FAEF6D200273FA5 /* HttpRequestModel.m in Sources */,
 				6D24B4F51FAAAAE900D691A6 /* TestDataModel.m in Sources */,
 				6D24B4F11FAAAA9C00D691A6 /* TestTableView.m in Sources */,
 				6D62213C1FA6BC8F0067320D /* UIButton+MAdd.m in Sources */,
